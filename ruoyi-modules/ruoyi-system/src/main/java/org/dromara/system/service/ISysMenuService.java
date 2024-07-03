@@ -81,6 +81,8 @@ public interface ISysMenuService {
      */
     List<RouterVo> buildMenus(List<SysMenu> menus);
 
+    List<RouterVo> buildMenus1(List<SysMenu> menus);
+
     /**
      * 构建前端所需要下拉树结构
      *

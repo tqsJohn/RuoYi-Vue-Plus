@@ -55,6 +55,11 @@ public class RouterVo {
     private MetaVo meta;
 
     /**
+     * 排序
+     */
+    private Integer order;
+
+    /**
      * 子路由
      */
     private List<RouterVo> children;

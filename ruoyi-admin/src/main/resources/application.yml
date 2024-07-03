@@ -1,14 +1,14 @@
 # 项目相关配置
 ruoyi:
   # 名称
-  name: RuoYi-Vue-Plus
+  name: sinbon-carbon-track
   # 版本
   version: ${revision}
   # 版权年份
   copyrightYear: 2024
 
 captcha:
-  enable: true
+  enable: false
   # 页面 <参数设置> 可开启关闭 验证码校验
   # 验证码类型 math 数组计算 char 字符验证
   type: MATH
@@ -128,7 +128,7 @@ security:
 # 多租户配置
 tenant:
   # 是否开启
-  enable: true
+  enable: false
   # 排除表
   excludes:
     - sys_menu
@@ -174,7 +174,7 @@ mybatis-encryptor:
 # api接口加密
 api-decrypt:
   # 是否开启全局接口加密
-  enabled: true
+  enabled: false
   # AES 加密头标识
   headerFlag: encrypt-key
   # 响应加密公钥 非对称算法的公私钥 如：SM2，RSA 使用者请自行更换
@@ -193,16 +193,16 @@ springdoc:
 #    persistAuthorization: true
   info:
     # 标题
-    title: '标题：${ruoyi.name}多租户管理系统_接口文档'
+    title: '标题：${ruoyi.name}_接口文档'
     # 描述
-    description: '描述：用于管理集团旗下公司的人员信息,具体包括XXX,XXX模块...'
+    description: ''
     # 版本
     version: '版本号: ${ruoyi.version}'
     # 作者信息
     contact:
-      name: Lion Li
-      email: crazylionli@163.com
-      url: https://gitee.com/dromara/RuoYi-Vue-Plus
+      name: Chaos Liu
+      email: chaosliu@sinbon.com
+      url: https://sinbon.com
   components:
     # 鉴权方式配置
     security-schemes:
@@ -262,7 +262,7 @@ management:
 --- # websocket
 websocket:
   # 如果关闭 需要和前端开关一起关闭
-  enabled: true
+  enabled: false
   # 路径
   path: /resource/websocket
   # 设置访问源地址

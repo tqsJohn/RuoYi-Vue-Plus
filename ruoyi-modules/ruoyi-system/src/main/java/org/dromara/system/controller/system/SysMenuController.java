@@ -4,6 +4,7 @@ import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.annotation.SaCheckRole;
 import cn.dev33.satoken.annotation.SaMode;
 import cn.hutool.core.lang.tree.Tree;
+import lombok.RequiredArgsConstructor;
 import org.dromara.common.core.constant.TenantConstants;
 import org.dromara.common.core.constant.UserConstants;
 import org.dromara.common.core.domain.R;
@@ -16,9 +17,9 @@ import org.dromara.system.domain.SysMenu;
 import org.dromara.system.domain.bo.SysMenuBo;
 import org.dromara.system.domain.vo.MenuTreeSelectVo;
 import org.dromara.system.domain.vo.RouterVo;
+import org.dromara.system.domain.vo.RouterVo1;
 import org.dromara.system.domain.vo.SysMenuVo;
 import org.dromara.system.service.ISysMenuService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,6 +47,18 @@ public class SysMenuController extends BaseController {
     public R<List<RouterVo>> getRouters() {
         List<SysMenu> menus = menuService.selectMenuTreeByUserId(LoginHelper.getUserId());
         return R.ok(menuService.buildMenus(menus));
+    }
+
+    @GetMapping("/getRouters1")
+    public R<RouterVo1> getRouters1() {
+        List<SysMenu> menus = menuService.selectMenuTreeByUserId(LoginHelper.getUserId());
+        List<RouterVo> routerVos = menuService.buildMenus1(menus);
+
+        RouterVo1 result = new RouterVo1();
+        result.setRoutes(routerVos);
+        result.setHome("home");
+
+        return R.ok(result);
     }
 
     /**

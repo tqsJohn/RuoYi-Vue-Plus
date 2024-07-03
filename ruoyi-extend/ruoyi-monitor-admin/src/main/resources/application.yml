@@ -18,7 +18,7 @@ spring:
   boot:
     admin:
       ui:
-        title: RuoYi-Vue-Plus服务监控中心
+        title: 服务监控中心
       context-path: /admin
 
 --- # Actuator 监控端点的配置项

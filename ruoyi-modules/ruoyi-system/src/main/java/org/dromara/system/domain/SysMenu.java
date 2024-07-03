@@ -3,12 +3,12 @@ package org.dromara.system.domain;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.dromara.common.core.constant.Constants;
 import org.dromara.common.core.constant.UserConstants;
 import org.dromara.common.core.utils.StringUtils;
 import org.dromara.common.mybatis.core.domain.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,6 +121,19 @@ public class SysMenu extends BaseEntity {
         if (isMenuFrame()) {
             routerName = StringUtils.EMPTY;
         }
+        return routerName;
+    }
+
+    public String getRouteName1() {
+        String routerName = path;
+        // 非外链并且是一级目录（类型为目录）
+        if (isMenuFrame()) {
+            routerName = StringUtils.EMPTY;
+        }
+        if (routerName.startsWith("/")) {
+            routerName = routerName.substring(1);
+        }
+        routerName = routerName.replace("/", "_");
         return routerName;
     }
 

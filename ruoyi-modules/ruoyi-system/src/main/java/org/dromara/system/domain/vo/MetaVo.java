@@ -1,7 +1,7 @@
 package org.dromara.system.domain.vo;
 
-import org.dromara.common.core.utils.StringUtils;
 import lombok.Data;
+import org.dromara.common.core.utils.StringUtils;
 
 /**
  * 路由显示信息
@@ -32,6 +32,8 @@ public class MetaVo {
      */
     private String link;
 
+    private Integer order;
+
     public MetaVo(String title, String icon) {
         this.title = title;
         this.icon = icon;
@@ -58,4 +60,11 @@ public class MetaVo {
         }
     }
 
+    public MetaVo(String title, String icon, boolean noCache, String link, Integer order) {
+        this.title = title;
+        this.icon = icon;
+        this.noCache = noCache;
+        this.link = link;
+        this.order = order;
+    }
 }
